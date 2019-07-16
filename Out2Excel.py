@@ -1,3 +1,6 @@
+import os
+path = get_ipython().magic('pwd')
+
 ## Bucket Summary
 writer = pd.ExcelWriter(os.path.join(path,r"Overview_{0}.xlsx".format(pd.datetime.today().strftime('%Y-%m-%d').replace('-',''))))
 df.to_excel(writer,'Sheet'+str(1), index = True, startcol = (k-1)*10, startrow = 0)
