@@ -18,7 +18,9 @@ def mean_by_score_bucket(df, score_col, indicator, indicator_detail, num_bins):
     score_bins = df_input[score_col].quantile(q = np.array(range(0,101, num_bins))/100.0).values.round(3)
     score_bins[0], score_bins[-1] = score_bins[0] - 0.002, score_bins[-1] + 0.002
     
-    df_input["{}_bucket".format(score_col)] = pd.cut(pp_tree_predicted[score_col], bins = score_bins, include_lowest = True, right = False)
+    df_input["{}_bucket".format(score_col)] = pd.cut(df_input[score_col], bins = score_bins, 
+                                                     include_lowest = True, right = False,
+                                                     duplicates = "drop")
     
     
     a = df_input.groupby("{}_bucket".format(score_col))[indicator].mean()
