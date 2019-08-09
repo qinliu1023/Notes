@@ -7,7 +7,7 @@
 
 fig, ax = plt.subplots(1,1, figsize = (12, 8))
 
-a.plot.scatter(x = "index", y = "average_rate", marker = "D", ax = ax);
+a.plot.scatter(x = "index", y = "average_rate", s = [100, 100], marker = "D", ax = ax);
 ax.annotate("Average Rate: "+"{:,.0%}".format(0.300400), xy = (-0.14, 0.300400 + 0.002), color = "k", fontsize = 12); 
 ax.annotate("Average Rate: "+"{:,.0%}".format(0.245923), xy = (0.83, 0.245923 + 0.002), color = "k", fontsize = 12); 
 ax.grid(b = True, which = "major", axis = "y", color = "darkgray", linestyle = '-', linewidth = 2, alpha = 0.35);
